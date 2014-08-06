@@ -10,12 +10,12 @@
     <h3>
       <%= @listing.name.titleize %>
     </h3>
-    <h5>
-      <%= @listing.description %>
-    </h5>
     <p>
-      <%= number_to_currency(@listing.price) %>
+      <%= @listing.description %>
     </p>
+    <h5>
+      <%= number_to_currency(@listing.price) %>
+    </h5>
   </div>
 </div>
 
