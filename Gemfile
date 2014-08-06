@@ -1,8 +1,7 @@
 # source 'https://rubygems.org'
-
+ruby "1.9.3"
 
 gem 'rails', '4.1.4'
-gem 'sqlite3'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'sass-rails', '~> 4.0.3'
@@ -13,7 +12,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-group :development do
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :development, :test do
+  gem 'sqlite3'
   gem 'sextant'
   gem 'better_errors'
 end
