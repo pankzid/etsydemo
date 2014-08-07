@@ -5,15 +5,9 @@
     </div>
   </div>
   <div class="col-md-6">
-    <h3>
-      <%= @listing.name.titleize %>
-    </h3>
-    <p>
-      <%= @listing.description %>
-    </p>
-    <h5>
-      <%= number_to_currency(@listing.price) %>
-    </h5>
+    <h3><%= @listing.name.titleize %></h3>
+    <p><%= @listing.description %></p>
+    <h5><%= number_to_currency(@listing.price) %></h5>
   </div>
 </div>
 
