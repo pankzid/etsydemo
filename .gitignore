@@ -21,3 +21,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# ignore file upload on localhost
+/public/system
