@@ -28,7 +28,7 @@
     <div class="row">
       <% unless @listing.new_record? %>
         <div class="col-md-3">
-          <div class="thumbnail"><%= image_tag @listing.image.url(:medium) %></div>
+          <div class="thumbnail"><%# image_tag @listing.image.url(:medium) %></div>
         </div>
         <% col_size = "col-md-9" %>
       <% end %>

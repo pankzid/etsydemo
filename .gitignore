@@ -16,5 +16,8 @@
 /tmp
 
 # asr
-*.*~
+/*.*~
 /Gemfile.lock
+
+# Ignore application configuration
+/config/application.yml
