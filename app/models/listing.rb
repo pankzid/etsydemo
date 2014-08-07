@@ -12,4 +12,11 @@ class Listing < ActiveRecord::Base
                        :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/gif", "image/png"] }
   # do_not_validate_attachment_file_type :image
   # validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/]
+
+  validates :name, :description, :price, presence: true
+  validates :price, numericality: { greater_than: 0 }
+
+  belongs_to :user
+
+  scope :recent, ->{ order("created_at DESC") }
 end

@@ -4,6 +4,7 @@
     <div class="thumbnail">
       <%= link_to((image_tag listing.image.url(:medium)), listing) %>
       <div class="caption center">
+        <h3><%= listing.user.try(:name) || listing.user.try(:email) || 'Unknown' %></h3>
         <h3><%= listing.name.titleize %></h3>
         <p><%= number_to_currency(listing.price) %></p>
         <%= link_to 'Show', listing, class: 'btn btn-link' %>
