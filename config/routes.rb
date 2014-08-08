@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'listings#index'
 
-  resources :listings
+  resources :listings do
+    resources :orders
+  end
 
   get 'pages/about'
   get 'pages/contact'
