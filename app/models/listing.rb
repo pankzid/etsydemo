@@ -20,4 +20,5 @@ class Listing < ActiveRecord::Base
 
   scope :recent, ->{ order("created_at DESC") }
   scope :seller, ->(user){ where(user: user) }
+  # scope :listing_by_user, ->(user_id){ whe}
 end

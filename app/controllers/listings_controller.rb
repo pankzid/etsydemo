@@ -9,7 +9,11 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.includes(:user).recent
+    @listings = if params[:user].present?
+      Listing.seller(params[:user]).recent
+    else
+      Listing.includes(:user).recent
+    end
   end
 
   # GET /listings/1
