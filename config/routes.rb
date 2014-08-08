@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'listings#index'
 
   resources :listings do
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
 
   get 'pages/about'
