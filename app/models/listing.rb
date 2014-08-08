@@ -19,4 +19,5 @@ class Listing < ActiveRecord::Base
   belongs_to :user
 
   scope :recent, ->{ order("created_at DESC") }
+  scope :seller, ->(user){ where(user: user) }
 end

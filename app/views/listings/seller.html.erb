@@ -7,7 +7,7 @@
         <h3><%= listing.name.titleize %></h3>
         <p><%= number_to_currency(listing.price) %></p>
         <h3>Sold by <%= listing.user.try(:name) || listing.user.try(:email) || 'Unknown' %></h3>
-        <% if user_signed_in? && (current_user == listing.user) %>
+        <% if current_user == listing.user %>
           <%= link_to 'Edit', edit_listing_path(listing), class: 'btn btn-link' %>
           <%= link_to 'Delete', listing, class: 'btn btn-link', method: :delete, data: { confirm: 'Are you sure!'} %>
         <% end %>
