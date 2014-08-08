@@ -1,7 +1,15 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :listing
+  before_action :listing, except: [:sales, :purchases]
+
+  def sales
+    @orders = Order.sales(current_user).includes([:listing, :buyer])
+  end
+
+  def purchases
+    @orders = Order.purchases(current_user).includes([:listing, :seller])
+  end
 
   # GET /orders
   # GET /orders.json

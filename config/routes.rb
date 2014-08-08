@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'seller' => 'listings#seller'
   get 'listings?user=:user_id' => 'listings#index', as: 'listing_by_user'
+  get 'sales' => 'orders#sales'
+  get 'purchases' => 'orders#purchases'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
