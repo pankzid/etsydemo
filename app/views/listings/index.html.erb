@@ -7,9 +7,10 @@
         <h3><%= listing.user.try(:name) || listing.user.try(:email) || 'Unknown' %></h3>
         <h3><%= listing.name.titleize %></h3>
         <p><%= number_to_currency(listing.price) %></p>
-        <%= link_to 'Show', listing, class: 'btn btn-link' %>
-        <%= link_to 'Edit', edit_listing_path(listing), class: 'btn btn-link' %>
-        <%= link_to 'Delete', listing, class: 'btn btn-link', method: :delete, data: { confirm: 'Are you sure!'} %>
+        <% if user_signed_in? && (current_user == listing.user) %>
+          <%= link_to 'Edit', edit_listing_path(listing), class: 'btn btn-link' %>
+          <%= link_to 'Delete', listing, class: 'btn btn-link', method: :delete, data: { confirm: 'Are you sure!'} %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -18,4 +19,6 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path, class: 'btn btn-link' %>
+<% if user_signed_in? %>
+  <%= link_to 'New Listing', new_listing_path, class: 'btn btn-link' %>
+<% end %>
