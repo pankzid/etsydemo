@@ -24,5 +24,6 @@
 
 # ignore file upload on localhost
 /public/system
-
+*.txt
 /node_modules
+
