@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
+# source 'https://code.stripe.com'
 ruby "1.9.3"
 
 gem 'rails', '4.1.4'
@@ -7,6 +8,8 @@ gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'paperclip-dropbox'
 gem 'figaro'
 gem 'devise'
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
