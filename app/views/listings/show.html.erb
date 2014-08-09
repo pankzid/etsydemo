@@ -12,7 +12,7 @@
     <br>
     <% unless current_user == @listing.user %>
       <div class="center">
-        <%= link_to 'Buy It Now', new_listing_order_path(@listing), class: "btn btn-primary" %>
+        <%= link_to 'Buy It Now', new_listing_order_path(@listing), class: "btn btn-primary", data: { no_turbolink: true } %>
       </div>
     <% end %>
   </div>
