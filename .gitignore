@@ -24,3 +24,5 @@
 
 # ignore file upload on localhost
 /public/system
+
+/node_modules
