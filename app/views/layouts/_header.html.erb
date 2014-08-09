@@ -20,7 +20,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seller Account <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seller Account <span class="glyphicon glyphicon-chevron-down"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to 'Manage Listing', seller_path %></li>
               <li><%= link_to 'Sales History', sales_path %></li>

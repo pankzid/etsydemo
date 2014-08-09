@@ -4,11 +4,11 @@ class OrdersController < ApplicationController
   before_action :listing, except: [:sales, :purchases]
 
   def sales
-    @orders = Order.sales(current_user).includes([:listing, :buyer])
+    @orders = Order.sales(current_user).includes([:listing, :buyer]).recent
   end
 
   def purchases
-    @orders = Order.purchases(current_user).includes([:listing, :seller])
+    @orders = Order.purchases(current_user).includes([:listing, :seller]).recent
   end
 
   # GET /orders/new

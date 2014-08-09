@@ -10,9 +10,11 @@
     <p><%= @listing.description %></p>
     <h4>Sold by <%= link_to @listing.user.try(:name_title), listing_by_user_path(@listing.user) %></h4>
     <br>
-    <div class="center">
-      <%= link_to 'Buy It Now', new_listing_order_path(@listing), class: "btn btn-primary" %>
-    </div>
+    <% unless current_user == @listing.user %>
+      <div class="center">
+        <%= link_to 'Buy It Now', new_listing_order_path(@listing), class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 </div>
 
