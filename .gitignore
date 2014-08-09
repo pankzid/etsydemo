@@ -23,7 +23,7 @@
 /config/application.yml
 
 # ignore file upload on localhost
-/public/system
+/public/system/*
 *.txt
 /node_modules
 
