@@ -11,12 +11,15 @@ payment =
 
   handleStripeResponse: (status, response)->
     if status == 200
-      alert(response.id)
-      payment.enableSubmitButton()
+      # alert(response.id)
+      $('#new_order').append($('<input type="hidden" name="stripeToken">').val(response.id))
+      $('#new_order')[0].submit()
+      # payment.enableSubmitButton()
     else
-      alert(response.error.message)
+      # alert(response.error.message)
+      $('#stripe_error').text(response.error.message).show()
       payment.enableSubmitButton()
-    false
+    # false
 
   enableSubmitButton: ->
     $('input[type="submit"]').attr('disabled', false)
