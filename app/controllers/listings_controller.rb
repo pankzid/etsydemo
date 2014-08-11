@@ -36,7 +36,18 @@ class ListingsController < ApplicationController
     @listing = current_user.listings.build(listing_params)
     # @listing.user_id = current_user.id
 
+    Stripe.api_key = ENV["STRIPE_API_KEY"]
+    bank_account_token = params[:bankAccountToken]
 
+    if current_user.recipient.blank?
+      recipient = Stripe::Recipient.create(
+        :name => current_user.full_name,
+        :type => "individual",
+        :bank_account => bank_account_token
+        )
+      current_user.recipient = recipient.id
+      current_user.save
+    end
 
     respond_to do |format|
       if @listing.save

@@ -28,18 +28,25 @@ class OrdersController < ApplicationController
     @order.listing_id = @listing.id
 
     Stripe.api_key = ENV["STRIPE_API_KEY"]
-    stripe_token = params[:cardToken]
+    card_token = params[:cardToken]
 
     begin
       Stripe::Charge.create(
         amount: (@listing.price*100).floor,
         currency: "usd",
-        card: cardToken
+        card: card_token
         )
       flash[:notice] = "Thanks for ordering"
     rescue Stripe::CardError => e
       flash[:danger] = e.message
     end
+
+    Stripe::Transfer.create(
+      :amount => (@listing.price*95).floor,
+      :currency => "usd",
+      :recipient => @listing.user.recipient,
+      :description => "Transfer for #{@listing.user.name_title}"
+    )
 
     respond_to do |format|
       if @order.save
