@@ -21,3 +21,7 @@
     </tr>
   <% end %>
 </table>
+
+<%= content_tag :p do %>
+  <%= link_to 'New Listing', new_listing_path, data: { no_turbolink: true } %>
+<% end %>
