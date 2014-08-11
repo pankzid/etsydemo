@@ -40,7 +40,9 @@ class ListingsController < ApplicationController
     bank_account_token = params[:bankAccountToken]
 
     if current_user.recipient.blank?
-      Rails.logger.info = current_user.full_name
+      Rails.logger.info "**********************"
+      Rails.logger.info current_user.full_name
+      Rails.logger.info "**********************"
       recipient = Stripe::Recipient.create(
         :name => current_user.full_name,
         :type => "individual",
